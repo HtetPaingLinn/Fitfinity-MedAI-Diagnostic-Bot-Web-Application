@@ -1,15 +1,25 @@
 {
-    "$schema": "http://openai.vercel.sh/vercel.json",
-    "outputDirectory": "public",
-    "functions": {
-        "api/lambda.php": {
-            "runtime": "vercel-php@0.7.4"
-        }
-    },
-    "rewrites": [
+    "version": 2,
+    "builds": [
         {
-            "source": "/(.*)",
-            "destination": "/api/lambda.php"
+            "src": "api/lambda.php",
+            "use": "vercel-php@0.7.4"
         }
-    ]
+    ],
+    "routes": [
+        {
+            "src": "/(css|js|images)/(.*)",
+            "dest": "public/$1/$2"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "api/lambda.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "LOG_CHANNEL": "stderr"
+    },
+    "buildCommand": "composer install --no-dev --optimize-autoloader --no-interaction && npm run build"
 }
