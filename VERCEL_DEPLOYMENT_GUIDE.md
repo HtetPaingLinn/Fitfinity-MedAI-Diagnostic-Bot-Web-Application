@@ -12,19 +12,20 @@ The 500 error is likely caused by missing environment variables. You **MUST** se
 
 #### Essential Variables:
 ```
-APP_KEY=base64:YOUR_APP_KEY_HERE
+APP_KEY=base64:EnArwhs6UjF/1knIIp0cr4SQKA/vD6YwqkhlQIlSB4s=
 APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://your-domain.vercel.app
 
-DB_CONNECTION=mysql
-DB_HOST=your-database-host
-DB_PORT=3306
-DB_DATABASE=your-database-name
-DB_USERNAME=your-database-user
-DB_PASSWORD=your-database-password
+DB_CONNECTION=sqlite
+DB_DATABASE=/tmp/database.sqlite
+
+SESSION_DRIVER=cookie
+CACHE_DRIVER=array
+QUEUE_CONNECTION=sync
 
 LOG_CHANNEL=stderr
+VIEW_COMPILED_PATH=/tmp/storage/framework/views
 ```
 
 ### How to Generate APP_KEY

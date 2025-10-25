@@ -1,11 +1,9 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "api/lambda.php",
-            "use": "vercel-php@0.7.4"
+    "functions": {
+        "api/lambda.php": {
+            "runtime": "vercel-php@0.7.4"
         }
-    ],
+    },
     "routes": [
         {
             "src": "/(css|js|images)/(.*)",
@@ -16,10 +14,5 @@
             "dest": "api/lambda.php"
         }
     ],
-    "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "LOG_CHANNEL": "stderr"
-    },
-    "buildCommand": "composer install --no-dev --optimize-autoloader --no-interaction && npm run build"
+    "buildCommand": "composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs && npm run build"
 }
