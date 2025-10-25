@@ -13,6 +13,5 @@
             "src": "/(.*)",
             "dest": "api/lambda.php"
         }
-    ],
-    "buildCommand": "composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs && npm run build"
+    ]
 }
