@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "outputDirectory": "public",
+    "builds": [
+        {
+            "src": "api/lambda.php",
+            "use": "vercel-php@0.7.4"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/lambda.php"
+        }
+    ]
+}
